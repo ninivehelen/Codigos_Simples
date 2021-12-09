@@ -1,0 +1,11 @@
+frase = str(input("digite uma frase")).strip().upper()
+palavra = frase.split()
+junto = ''.join(palavra)
+inverso = ''
+for n in range(len(junto) -1, -1,-1):
+     inverso += junto[n]
+
+if(inverso == junto):
+    print("A palavra e palíndro", inverso)
+else:
+    print("A palavra não é palíndro", inverso)
