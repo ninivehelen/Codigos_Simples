@@ -133,12 +133,47 @@ listar()
 
 usa_vacina()
 {
-    int quant_vacina;
-    printf("Insira a quantidade de vacinas que deseja utilizar");
-    scanf("%i", &quant_vacina);
-    c[q_estoque].quantidade_vacina -= quant_vacina;
+    char nome_vac[20];
+	int i,quant_nova;
+				printf("Digite o nome da vacina para buscar\n");
+				fflush(stdin);
+				gets(nome_vac);
+				fflush(stdin);
+				for(i=0; i<q_estoque ;i++){
+					if(strcmp(nome_vac, c[i].nome) == 0){
+				printf("Digite a quantide que deseja utilizar\n");
+				scanf("%i", &quant_nova);
+				if(quant_nova> c[i].quantidade_vacina){
+                    printf("Quantidade de retirada maior do que a do estoque\n");
+
+				}else{
+				c[i].quantidade_vacina -= quant_nova;
+				printf("Retirada");
 
 }
+		}
+}
+}
+
+adicionar_vacina()
+{
+    char nome_vac[20];
+	int i,quant_nova;
+				printf("Digite o nome da vacina para buscar\n");
+				fflush(stdin);
+				gets(nome_vac);
+				fflush(stdin);
+				for(i=0; i<q_estoque ;i++){
+					if(strcmp(nome_vac, c[i].nome) == 0){
+				printf("Digite a quantide que deseja utilizar\n");
+				scanf("%i", &quant_nova);
+				c[i].quantidade_vacina += quant_nova;
+				printf("Vacina Adicionada");
+                }else{
+                    printf("Nome nao encontrado\n");
+					}
+}
+		}
 
 listar_por_nome(){
     char nome_vac[20];
@@ -163,7 +198,6 @@ listar_por_nome(){
 }
 
 
-
 int menu()
 {
     int op;
@@ -174,9 +208,9 @@ int menu()
         printf("\n=======================================\n");
         printf("1- Cadastro!\n");
         printf("2- Lista Estoque de vacina!\n");
-        printf("3- Vacina utilizada!\n");
-        printf("4- Editar cadastro!\n");
-        printf("5- Excluir dado de um cadastro!\n");
+        printf("3- Utilizar vacina!\n");
+        printf("4- Adiciona vacina!\n");
+        printf("5- Excluir dados da vacina!\n");
         printf("6- Pesquisar por nome\n");
         printf("0- para sair e voltar ao meu de cadastro!\n");
         printf(":");
@@ -192,6 +226,10 @@ int menu()
             break;
         case 3:
             usa_vacina();
+            break;
+
+        case 4:
+            adicionar_vacina();
             break;
 
         case 6:
