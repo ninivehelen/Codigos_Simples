@@ -197,6 +197,35 @@ listar_por_nome(){
 
 }
 
+salvar_relatorio(){
+    int i;
+  FILE *pont_arq;
+
+  pont_arq = fopen("Relatorio_Vacina.txt", "w");
+
+  if(pont_arq == NULL)
+  {
+  printf("Erro na abertura do arquivo!");
+  return 1;
+  }
+
+  for(i=0; i<q_estoque ;i++){
+				fprintf(pont_arq, "Nome da vacina: %s\n",c[i].nome);
+                fprintf(pont_arq, "Laboratorio:%s\n",c[i].laboratorio);
+                fprintf(pont_arq, "Data da compra:%s\n",c[i].data_compra);
+                fprintf(pont_arq, "Data da validade:%s\n",c[i].data_validade);
+                fprintf(pont_arq, "Quantidade de vacina:%i\n",c[i].quantidade_vacina);
+                fprintf(pont_arq, "...............................\n");
+				}
+
+  fclose(pont_arq);
+
+  printf("Dados gravados com sucesso!");
+  menu();
+
+  getch();
+  return(0);
+}
 
 int menu()
 {
@@ -212,6 +241,7 @@ int menu()
         printf("4- Adiciona vacina!\n");
         printf("5- Excluir dados da vacina!\n");
         printf("6- Pesquisar por nome\n");
+        printf("7- Salvar Relatorio\n");
         printf("0- para sair e voltar ao meu de cadastro!\n");
         printf(":");
         scanf("%d",&op);
@@ -235,9 +265,14 @@ int menu()
         case 6:
             listar_por_nome();
             break;
+
+        case 7:
+            salvar_relatorio();
+            break;
         }
     }
 }
+
 
 
 int main ()
