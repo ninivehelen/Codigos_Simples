@@ -135,7 +135,7 @@ usa_vacina()
 {
     char nome_vac[20];
 	int i,quant_nova;
-				printf("Digite o nome da vacina para buscar\n");
+				printf("Digite o nome da vacina para Utilizar\n");
 				fflush(stdin);
 				gets(nome_vac);
 				fflush(stdin);
@@ -143,8 +143,9 @@ usa_vacina()
 					if(strcmp(nome_vac, c[i].nome) == 0){
 				printf("Digite a quantide que deseja utilizar\n");
 				scanf("%i", &quant_nova);
+
 				if(quant_nova> c[i].quantidade_vacina){
-                    printf("Quantidade de retirada maior do que a do estoque\n");
+                    printf("Quantidade de retirada maior do que a do estoque tente novamente\n");
 
 				}else{
 				c[i].quantidade_vacina -= quant_nova;
@@ -154,18 +155,17 @@ usa_vacina()
 		}
 }
 }
-
 adicionar_vacina()
 {
     char nome_vac[20];
 	int i,quant_nova;
-				printf("Digite o nome da vacina para buscar\n");
+				printf("Digite o nome da vacina para adicionar quantidade\n");
 				fflush(stdin);
 				gets(nome_vac);
 				fflush(stdin);
 				for(i=0; i<q_estoque ;i++){
 					if(strcmp(nome_vac, c[i].nome) == 0){
-				printf("Digite a quantide que deseja utilizar\n");
+				printf("Digite a quantide que deseja adicionar\n");
 				scanf("%i", &quant_nova);
 				c[i].quantidade_vacina += quant_nova;
 				printf("Vacina Adicionada");
@@ -192,6 +192,30 @@ listar_por_nome(){
                 printf("Data validade:%s\n",c[i].data_validade);
                 printf("Quantidade de vacinas:%d\n",c[i].quantidade_vacina);
 
+				}else{
+				    printf("Nome não encontrado");
+				}
+		}
+
+}
+
+excluir_dado(){
+     char nome_vac[20];
+	int i;
+
+				printf("Digite o nome da vacina para buscar\n");
+				fflush(stdin);
+				gets(nome_vac);
+				fflush(stdin);
+				for(i=0; i<q_estoque ;i++){
+					if(strcmp(nome_vac, c[i].nome) == 0){
+                      strcpy(c[i].nome,c[i+1].nome);
+                      strcpy(c[i].laboratorio,c[i+1].laboratorio);
+                      strcpy(c[i].data_compra,c[i+1].data_compra);
+                      strcpy(c[i].data_validade,c[i+1].data_validade);
+                      c[i].quantidade_vacina = c[i+1].quantidade_vacina;
+				}else{
+				    printf("Nome não encontrado");
 				}
 		}
 
@@ -264,6 +288,10 @@ int menu()
 
         case 6:
             listar_por_nome();
+            break;
+
+         case 5:
+            excluir_dado();
             break;
 
         case 7:
