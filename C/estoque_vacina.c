@@ -154,6 +154,8 @@ usa_vacina()
 				printf("Retirada");
 
 }
+		}else{
+		    printf("Nome não encontrado");
 		}
 }
 }
@@ -200,6 +202,74 @@ listar_por_nome(){
 		}
 
 }
+
+editar_vacina(){
+    char nome_vac[20];
+	int i,op2;
+
+				printf("Digite o nome da vacina para Editar\n");
+				fflush(stdin);
+				gets(nome_vac);
+				fflush(stdin);
+				for(i=0; i<q_estoque ;i++){
+					if(strcmp(nome_vac, c[i].nome) == 0){
+                printf("Nome da vacina: %s\n",c[i].nome);
+                printf("Laboratorio da vacina:%s\n",c[i].laboratorio);
+                printf("Data da Compra da vacina :%s\n",c[i].data_compra);
+                printf("Data da validade da vacina:%s\n",c[i].data_validade);
+                printf("Quantidade de vacinas:%d\n\n",c[i].quantidade_vacina);
+                    printf("Digite a opção que deseja alterar\n");
+              printf("\n=========================================\n");
+              printf("1- Para alterar o Nome\n");
+              printf("2- Para alterar o Laboratorio\n");
+              printf("3- Para alterar a data da compra \n");
+              printf("4- Para alterar a data da validade\n");
+              printf("5- Para alterar a quantidade de vacina\n");
+              printf(":");
+              printf("\n=========================================");
+              scanf("%d",&op2);
+              system("cls");
+
+              switch (op2) {
+                case 1:
+                  printf("Nome:");
+                  scanf("%s",c[i].nome);
+                  printf("Alterado com sucesso");
+
+                break;
+                case 2:
+                  printf("Laboratorio:");
+                  scanf("%s",c[i].laboratorio);
+                  printf("Alterado com sucesso");
+
+                break;
+                case 3:
+                  printf("Data Compra:");
+                  scanf("%s",c[i].data_compra);
+                  printf("Alterado com sucesso");
+
+                break;
+
+                case 4:
+                  printf("Data validade:");
+                  scanf("%s",c[i].data_validade);
+                  printf("Alterado com sucesso");
+
+                break;
+
+                case 5:
+                  printf("Quantidade de vacina:");
+                  scanf("%d",&c[i].quantidade_vacina);
+                  printf("Alterado com sucesso");
+
+                break;
+
+            }
+                            }else{
+                              printf("Nome não encontrado");
+                            }
+            }
+            }
 
 excluir_dado(){
      char nome_vac[20];
@@ -267,7 +337,8 @@ int menu()
         printf("4- Adiciona vacina!\n");
         printf("5- Excluir dados da vacina!\n");
         printf("6- Pesquisar vacina por nome\n");
-        printf("7- Salvar Relatorio das vacinas \n");
+        printf("7- Editar Vacina \n");
+        printf("8- Salvar Relatorio das vacinas \n");
         printf("0- Para sair e voltar ao meu de cadastro de login!\n");
         printf(":");
         scanf("%d",&op);
@@ -297,6 +368,11 @@ int menu()
             break;
 
         case 7:
+            editar_vacina();
+            break;
+
+
+        case 8:
             salvar_relatorio();
             break;
         }
