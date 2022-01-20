@@ -76,10 +76,9 @@ cadastro_login()
         printf("\nSenha: ");
         scanf("%s", Senha);
 
-
         system("cls");
 
-        printf("======= Seja Bem-Vindo %s ========\n\n\n", Nome);
+
 
 
         system("cls");
@@ -87,6 +86,9 @@ cadastro_login()
 
 
     }
+    system("cls");
+    printf("======= Login Efetuado com sucesso ========\n");
+    printf("======= Seja Bem-Vindo(a) %s ========\n", Nome);
     menu();
 }
 
@@ -95,23 +97,23 @@ cadastrar()
     printf("\n=========================================");
     printf("\n====Sistema de Cadastro de Vacina=======");
     printf("\n=======================================\n");
-    printf("Nome: ");
-    scanf("%s",c[q_estoque ].nome);
+    printf("Nome da vacina: ");
+    scanf("%s",c[q_estoque].nome);
 
 
-    printf("Laboratorio:");
-    scanf("%s",c[q_estoque ].laboratorio);
+    printf("Laboratorio da vacina:");
+    scanf("%s",c[q_estoque].laboratorio);
 
 
-    printf("Data da compra: ");
-    scanf("%s",c[q_estoque ].data_compra);
+    printf("Data da compra da vacina: ");
+    scanf("%s",c[q_estoque].data_compra);
 
 
-    printf("Data validade: ");
-    scanf("%s",c[q_estoque ].data_validade);
+    printf("Data da validade da vacina: ");
+    scanf("%s",c[q_estoque].data_validade);
 
 
-    printf("Quantidade Vacina:");
+    printf("Quantidade de vacina:");
     scanf("%d",&c[q_estoque].quantidade_vacina);
     q_estoque++;
 }
@@ -123,10 +125,10 @@ listar()
     {
         printf("\n");
         printf("---------------------------------------\n");
-        printf("Nome:%s\n",c[i].nome);
-        printf("Laboratorio:%s\n",c[i].laboratorio);
-        printf("data da Compra:%s\n",c[i].data_compra);
-        printf("data validade:%s\n",c[i].data_validade);
+        printf("Nome da vacina:%s\n",c[i].nome);
+        printf("Laboratorio da vacina:%s\n",c[i].laboratorio);
+        printf("data da Compra da vacina:%s\n",c[i].data_compra);
+        printf("data de validade da vacina:%s\n",c[i].data_validade);
         printf("quantidade de vacinas:%d\n",c[i].quantidade_vacina);
     }
 }
@@ -135,13 +137,13 @@ usa_vacina()
 {
     char nome_vac[20];
 	int i,quant_nova;
-				printf("Digite o nome da vacina para Utilizar\n");
+				printf("Digite o nome da vacina para utilizar\n");
 				fflush(stdin);
 				gets(nome_vac);
 				fflush(stdin);
 				for(i=0; i<q_estoque ;i++){
 					if(strcmp(nome_vac, c[i].nome) == 0){
-				printf("Digite a quantide que deseja utilizar\n");
+				printf("Digite a quantide de vacina que deseja utilizar\n");
 				scanf("%i", &quant_nova);
 
 				if(quant_nova> c[i].quantidade_vacina){
@@ -187,9 +189,9 @@ listar_por_nome(){
 					if(strcmp(nome_vac, c[i].nome) == 0){
 
 				printf("Nome da vacina: %s\n",c[i].nome);
-                printf("Laboratorio:%s\n",c[i].laboratorio);
-                printf("Data da Compra:%s\n",c[i].data_compra);
-                printf("Data validade:%s\n",c[i].data_validade);
+                printf("Laboratorio da vacina:%s\n",c[i].laboratorio);
+                printf("Data da Compra da vacina :%s\n",c[i].data_compra);
+                printf("Data da validade da vacina:%s\n",c[i].data_validade);
                 printf("Quantidade de vacinas:%d\n",c[i].quantidade_vacina);
 
 				}else{
@@ -203,7 +205,7 @@ excluir_dado(){
      char nome_vac[20];
 	int i;
 
-				printf("Digite o nome da vacina para buscar\n");
+				printf("Digite o nome da vacina para excluir\n");
 				fflush(stdin);
 				gets(nome_vac);
 				fflush(stdin);
@@ -235,9 +237,9 @@ salvar_relatorio(){
 
   for(i=0; i<q_estoque ;i++){
 				fprintf(pont_arq, "Nome da vacina: %s\n",c[i].nome);
-                fprintf(pont_arq, "Laboratorio:%s\n",c[i].laboratorio);
-                fprintf(pont_arq, "Data da compra:%s\n",c[i].data_compra);
-                fprintf(pont_arq, "Data da validade:%s\n",c[i].data_validade);
+                fprintf(pont_arq, "Laboratorio da vacina:%s\n",c[i].laboratorio);
+                fprintf(pont_arq, "Data da compra da vacina:%s\n",c[i].data_compra);
+                fprintf(pont_arq, "Data da validade da vaicna :%s\n",c[i].data_validade);
                 fprintf(pont_arq, "Quantidade de vacina:%i\n",c[i].quantidade_vacina);
                 fprintf(pont_arq, "...............................\n");
 				}
@@ -259,14 +261,14 @@ int menu()
          printf("\n=========================================");
         printf("\n====Sistema de Cadastro de Vacina=======");
         printf("\n=======================================\n");
-        printf("1- Cadastro!\n");
+        printf("1- Cadastrar vacina!\n");
         printf("2- Lista Estoque de vacina!\n");
         printf("3- Utilizar vacina!\n");
         printf("4- Adiciona vacina!\n");
         printf("5- Excluir dados da vacina!\n");
-        printf("6- Pesquisar por nome\n");
-        printf("7- Salvar Relatorio\n");
-        printf("0- para sair e voltar ao meu de cadastro!\n");
+        printf("6- Pesquisar vacina por nome\n");
+        printf("7- Salvar Relatorio das vacinas \n");
+        printf("0- Para sair e voltar ao meu de cadastro de login!\n");
         printf(":");
         scanf("%d",&op);
         system("cls");
