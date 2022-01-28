@@ -13,3 +13,17 @@
 	<string.h>
 	<locale.h>
 
+1643119450 source:c:\users\ninive\desktop\codigos_simples\c\estoque_vacina_modularizacao\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	"vacina.h"
+
+1643119445 c:\users\ninive\desktop\codigos_simples\c\estoque_vacina_modularizacao\vacina.h
+
+1643119450 source:c:\users\ninive\desktop\codigos_simples\c\estoque_vacina_modularizacao\vacina.c
+	"vacina.h"
+	<stdio.h>
+	<string.h>
+	<locale.h>
+

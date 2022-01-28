@@ -16,30 +16,30 @@ int q_estoque = 0;
 
 void cadastro_login()
 {
-    char Login [30];
-    char Senha [30];
-    char RegLogin [30];
-    char RegSenha [30];
-    char Nome [40];
-    char Confirma[1];
+    char login [30];
+    char senha [30];
+    char cadLogin [30];
+    char cadSenha [30];
+    char nome [40];
+    char confirma[1];
 
     printf("\n===================================");
     printf("\n====== CADASTRADO DE USU�RIO ======");
     printf("\n===================================");
 
     printf("\n\nPrimeiro Nome: ");
-    scanf("%s", Nome);
+    scanf("%s", nome);
 
     printf("\n\nLogin: ");
-    scanf("%s", RegLogin);
+    scanf("%s", cadLogin);
 
     printf("\n\nSenha: ");
-    scanf("%s", RegSenha);
+    scanf("%s", cadSenha);
 
     printf("\n\n====== USU�RIO CADASTRADO ======");
 
     printf("\n\nAPERTE '1' para fazer o Login : ");
-    scanf("%s", Confirma);
+    scanf("%s", confirma);
 
     system("cls");
 
@@ -52,12 +52,12 @@ void cadastro_login()
     printf("\n=================================");
 
     printf("\n\nLogin: ");
-    scanf("%s", Login);
+    scanf("%s", login);
 
     printf("\nSenha: ");
-    scanf("%s", Senha);
+    scanf("%s", senha);
 
-    while((strcmp (Login, RegLogin) != 0) || (strcmp(Senha,RegSenha) != 0))
+    while((strcmp (login, cadLogin) != 0) || (strcmp(senha,cadSenha) != 0))
     {
         printf("\n\n\n====== LOGIN E/OU SENHA INCORRETOS ======\n\n");
 
@@ -71,10 +71,10 @@ void cadastro_login()
         printf("\n\n======= TENTE NOVAMENTE =======");
 
         printf("\n\nLogin: ");
-        scanf("%s", Login);
+        scanf("%s", login);
 
         printf("\nSenha: ");
-        scanf("%s", Senha);
+        scanf("%s", senha);
 
         system("cls");
 
@@ -82,13 +82,12 @@ void cadastro_login()
 
 
         system("cls");
-
 
 
     }
     system("cls");
     printf("\n\n===== LOGIN EFETUADO COM SUCESSO =======\n");
-    printf("\n======= SEJA BEM-VINDO(A): %s ======\n", Nome);
+    printf("\n======= SEJA BEM-VINDO(A): %s ======\n", nome);
     menu();
 }
 
