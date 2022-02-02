@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1643760999 source:c:\users\ninive\desktop\pilhha_modularizacao\pilha_modularizacao\pilha.c
+	"pilha.h"
+
+1643761054 source:c:\users\ninive\desktop\pilhha_modularizacao\pilha_modularizacao\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	"pilha.h"
+
+1643761140 c:\users\ninive\desktop\pilhha_modularizacao\pilha_modularizacao\pilha.h
+
