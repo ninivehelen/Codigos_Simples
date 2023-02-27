@@ -19,10 +19,21 @@ class Conta():
   def transfere(self,valor_transfere, destino):
      self.sacar(valor_transfere)
      destino.depositar(valor_transfere)
+
+  #metodo para mostrar apenas o valor do saldo
+  def geter_saldo(self):
+      return self.__saldo
   
-  def eh_inadiplente(self, cliente):
-      pass
-     
+  def geter_limite(self):
+      return self.__limite
+
+  #metodo para setar um valor, adicionando novo saldo
+  def set_depositar(self,valor_novo):
+      self.__saldo += valor_novo
+  
+  def set_aumenta_limite(self,novo_limite):
+     self.__limite = novo_limite
+
 conta = Conta(1,'Paula',1000,2000)
 conta.extrato()
 
@@ -32,3 +43,10 @@ conta2.extrato()
 conta2.transfere(10, conta)
 conta.extrato()
 conta2.extrato()
+
+print(conta.geter_saldo())
+
+conta.set_depositar(20)
+print(conta.geter_saldo())
+conta.set_aumenta_limite(3000)
+print(conta.geter_limite())
